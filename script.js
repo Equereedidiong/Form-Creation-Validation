@@ -54,7 +54,7 @@ if (!emailValue.value.includes('@') || !emailValue.value.includes('.')) {
     messages.push ('Email format invalid');
 }
 
-if (passwordValue.length <= 8) {
+if (password.length <= 8) {
    isValid = false,
    messages.push('Password too weak');
 }
@@ -70,6 +70,6 @@ if (isValid = true) {
 
 if (!isValid) {
     feedbackDiv.innerHTML = messages.join('<br>');
-    feedbackDiv.style.color = #dc3545
+    feedbackDiv.style.color = '#dc3545'
     feedbackDiv.style.display = block
 }
