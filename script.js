@@ -3,9 +3,8 @@
 
 document.addEventListener ('DOMContentLoaded', function() {
 
-const form = document.getElementById ("registration-form")
-const feedbackDiv = document.getElementById ("form-feedback")
-
+    const form = document.getElementById ("registration-form")
+    const feedbackDiv = document.getElementById ("form-feedback")
 });
 
 // Form Submission and Event Prevention
@@ -67,11 +66,10 @@ if (isValid = true) {
     feedbackDiv.style.color = "#28a745"
 }
 
-if (isValid = false) {
-    feedbackDiv.innerHTML = console.log (messages + "<br>")
-    feedbackDiv.style.color = '#dc3545'
-    feedbackDiv.style.display = 'block'
-};
 //Displaying Feedback
 
-
+if (!isValid) {
+    feedbackDiv.innerHTML = messages.join('<br>');
+    feedbackDiv.style.color = #dc3545
+    feedbackDiv.style.display = block
+}
