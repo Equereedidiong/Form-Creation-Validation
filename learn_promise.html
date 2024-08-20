@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+   
+    <p>Learning Javascript Promise</p>
+    
+    <button onclick="startChores()"> Start Chores </button>
+
+
+    <script>
+ 
+
+        // function getUsers() {
+        //     // console.log (usergotten);
+        //   Data = ['Ade', 'tommyboy2k4@gmail.com']
+        //   console.log(Data [1]);
+        // };
+          
+        function walkDog() {
+
+            return  new Promise ((resolve, reject) => {
+                setTimeout (() => {
+                    resolve ("You walked the Dog");
+                }, 1000);
+            });
+        }
+
+        function takeOutTrash() {
+
+            return  new Promise ((resolve, reject) => {
+                setTimeout (() => {
+                    resolve ("You took out the Trash");
+                }, 2500);
+            });
+        }
+
+
+        function cleanKitchen() {
+
+            return  new Promise ((resolve, reject) => {
+                setTimeout (() => {
+                    resolve ("You cleaned the Kitchen");
+                }, 500);
+            });
+        }
+
+        function bathCat() {
+
+            return  new Promise ((resolve, reject) => {
+                setTimeout (() => {
+
+                    const bathCat = false;
+                           
+                    if (bathCat) {
+                        resolve ("You Bathed the Cat");
+                    }
+
+                    else {
+                        reject ("You did not bath anything");
+                    }
+                    
+                }, 1200);
+            });
+        }
+
+        //After writting the functions we now Method Chain them;
+
+        
+         
+        walkDog().then (result => {console.log (result); return takeOutTrash()})
+                 .then (value =>  {console.log (value); return cleanKitchen()})
+                 .then (value =>  {console.log (value); return bathCat()})
+                 .then (value =>  {console.log (value); console.log("That all the chore well done")})
+                 .catch (error => console.error(error)); //We then also catch errors. 
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+   
+    <p>Learning Javascript Fetch </p>
+    
+    <button onclick="getBoredActivity()"> Randomize Activity </button>
+
+
+    <script>
+       
+     function getBoredActivity () {
+
+        
+        fetch ('http://worldtimeapi.org/api/timezone/America/New_york')
+        .then(response => {
+
+        if (!response.ok) {
+            
+            throw new Error('HTTP error!')
+        } else {
+            return response.json();    
+
+        }})
+
+        .then (Data => console.log (Data)) 
+        }
+
+    //  getBoredActivity(); 
+    </script>
+</body>
+</html>

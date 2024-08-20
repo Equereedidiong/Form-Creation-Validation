@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+   
+    <p>Learning Javascript Promise</p>
+    
+    <button onclick="startChores()"> Start Chores </button>
+
+
+    <script>
+ 
+
+        // function getUsers() {
+        //     // console.log (usergotten);
+        //   Data = ['Ade', 'tommyboy2k4@gmail.com']
+        //   console.log(Data [1]);
+        // };
+          
+        function startChores() {
+            walkDog(cleanedKitchen)
+        }
+
+        function walkDog(callback){
+
+           setTimeout (() => {
+              console.log (" You walked the dog");
+                callback ();
+            }, 1500);
+            
+        }
+        
+        function cleanedKitchen(callback){
+
+           setTimeout (() => {
+              console.log (" You cleaned the Kitchen");
+                callback ();
+            }, 2500);
+            
+        }
+        
+        
+        function takeOutTrash(callback){
+
+           setTimeout (() => {
+              console.log (" You took out the trash");
+               callback ();
+            }, 500);
+ 
+        }
+    
+        // To perform the tasks or functions in order = CALLBACK HELL
+
+        walkDog(() => {
+            cleanedKitchen (() => {
+                takeOutTrash (() => console.log ("You finished all the chores!"));
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

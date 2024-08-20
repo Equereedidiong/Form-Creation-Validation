@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+   
+    <p>Learning Javascript Promise</p>
+    
+    <button onclick="startChores()"> Start Chores </button>
+
+
+    <script>
+ 
+
+        // function getUsers() {
+        //     // console.log (usergotten);
+        //   Data = ['Ade', 'tommyboy2k4@gmail.com']
+        //   console.log(Data [1]);
+        // };
+          
+        function walkDog() {
+
+            return  new Promise ((resolve,reject) => {
+                setTimeout (() => {
+                    resolve ("You walked the Dog");
+                }, 1000);
+            });
+        }
+
+        function takeOutTrash() {
+
+            return  new Promise ((resolve,reject) => {
+                setTimeout (() => {
+                    resolve ("You took out the Trash");
+                }, 2500);
+            });
+        }
+
+
+        function cleanKitchen() {
+
+            return  new Promise ((resolve, reject) => {
+                setTimeout (() => {
+                    resolve ("You cleaned the Kitchen");
+                }, 500);
+            });
+        }
+
+        function bathCat() {
+
+            return  new Promise ((resolve,reject) => {
+                setTimeout (() => {
+
+                    const bathCat = false;
+                           
+                    if (bathCat) {
+                        resolve ("You Bathed the Cat");
+                    }
+
+                    else {
+                        reject ("You did not bath anything");
+                    }
+                    
+                }, 1200);
+            });
+        }
+
+        //After writting the functions we now Method Chain them;
+
+        
+         
+        // walkDog().then (result => {console.log (result); return takeOutTrash()})
+        //          .then (value =>  {console.log (value); return cleanKitchen()})
+        //          .then (value =>  {console.log (value); return bathCat()})
+        //          .then (value =>  {console.log (value); console.log("That all the chore well done")})
+        //          .catch (error => console.error(error)); //We then also catch errors. 
+
+     //In ASYNC & AWAIT functions we do not need to method chain:
+
+     //1. The promise does'nt return resolve of reject instead it is empty.
+     //2. There is no method chaining, so what we typically do is, use the AWAIT.
+     //3. What then happens is that; Async waits for the declared promise and 
+
+      async function doChores () {
+        
+        try {
+            
+        const walkDogResults = await walkDog (); //Awaiting here mean you are waiting for the promise which would resolve so you can log it before continuing the code
+        console.log (walkDogResults);
+
+        const takeOutTrashResults = await takeOutTrash ();
+        console.log (takeOutTrashResults);
+
+        const cleanedKitchenResults = await cleanKitchen ();
+        console.log (cleanedKitchenResults);
+
+        console.log ("In pains but still doing chores")
+
+        }
+        
+        // But we still need to invoke the whole code from start, so outside the 
+        // async code block
+        catch(error) {
+              
+            console.error(error);
+
+        }
+
+     }
+
+       doChores ();
+
+
+    </script>
+</body>
+</html>t

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocking Example</title>
+</head>
+
+<body>
+   
+    <p>Learning Javascript Fetch </p>
+    
+    <button onclick="getData()"> Randomize Activity </button>
+
+
+    <script>
+    //   fetch ('http://worldtimeapi.org/api/timezone/America/New_york')
+    //    .then (results => { return results.json();})
+    //     .then (resultsData => { console.log (resultsData)});
+
+        // If we want to use asysnc and await
+
+        async function getData () {
+
+        let url =  'http://worldtimeapi.org/api/timezone/America/New_york'
+        const response   = await fetch (url)
+        const Data = await response.json()
+        console.log (Data);
+          
+        }
+
+        getData ();
+ 
+
+    </script>
+</body>
+</html>
